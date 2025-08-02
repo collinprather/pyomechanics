@@ -3,15 +3,8 @@
 
 
 
-![rear shoulder orientation](./viz/rear_shoulder.gif)
+![rear shoulder joint angles](./viz/rear_shoulder_hstack.gif)
 
-![rear shoulder joint angles](./viz/rear_shoulder_joint_angles.gif)
-
-
-<div style="display: flex;">
-  <img src="./viz/rear_shoulder.gif" width="50%">
-  <img src="./viz/rear_shoulder_joint_angles.gif" width="50%">
-</div>
 
 
 ### References
