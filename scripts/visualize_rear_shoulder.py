@@ -125,6 +125,7 @@ def visualize_rear_shoulder(session_swing="447_5", output_path="rear_shoulder_vi
         # Scapula to shoulder
         ('scapula_r', 'RSHO')
     ]
+    bat_connections = [('Marker1', 'Marker2'), ('Marker1', 'Marker3'), ('Marker2', 'Marker3')]
     
     # Set up the figure with black background
     fig = plt.figure(figsize=(12, 9), facecolor='black')
@@ -184,6 +185,15 @@ def visualize_rear_shoulder(session_swing="447_5", output_path="rear_shoulder_vi
                                [data1[frame, 1], data2[frame, 1]], 
                                [data1[frame, 2], data2[frame, 2]], 
                                color='tab:blue', alpha=0.7, linewidth=2)
+        for marker1, marker2 in bat_connections:
+            if marker1 in markers.data and marker2 in markers.data:
+                data1 = markers.data[marker1]
+                data2 = markers.data[marker2]
+                if not np.isnan(data1[frame]).any() and not np.isnan(data2[frame]).any():
+                    ax.plot([data1[frame, 0], data2[frame, 0]], 
+                           [data1[frame, 1], data2[frame, 1]], 
+                           [data1[frame, 2], data2[frame, 2]], 
+                           color='white', alpha=0.35, linewidth=3)
         
         # Draw orientation vectors for right scapula
         if 'scapula_r_frames' in markers.data and 'scapula_r' in markers.data:
