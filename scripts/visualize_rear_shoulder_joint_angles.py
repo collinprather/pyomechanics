@@ -141,7 +141,7 @@ def visualize_rear_shoulder_joint_angles(session_swing="447_5", output_path="rea
         ax.axhline(y=0, color='white', linestyle='-', alpha=0.5, linewidth=1)
     
     # Create animation with every 10th frame to reduce file size, starting from frame 250
-    frame_skip = 10
+    frame_skip = 5
     frames = range(250, len(time_array), frame_skip)
     
     print(f"Creating animation with {len(frames)} frames...")
@@ -152,7 +152,7 @@ def visualize_rear_shoulder_joint_angles(session_swing="447_5", output_path="rea
     
     # Save as GIF
     print(f"Saving GIF to {output_path}...")
-    anim.save(output_path, writer='pillow', fps=3, dpi=100)
+    anim.save(output_path, writer='pillow', fps=9, dpi=100)
     print(f"GIF saved successfully!")
     
     plt.close()

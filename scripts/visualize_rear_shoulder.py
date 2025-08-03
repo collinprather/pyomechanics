@@ -238,7 +238,7 @@ def visualize_rear_shoulder(session_swing="447_5", output_path="rear_shoulder_vi
         ax.view_init(elev=15, azim=90+55 if batter_hand == "L" else -(90+55))
     
     # Create animation with every 10th frame to reduce file size
-    frame_skip = 10
+    frame_skip = 5
     frames = range(250, len(markers.time), frame_skip)
     
     print(f"Creating animation with {len(frames)} frames...")
@@ -249,7 +249,7 @@ def visualize_rear_shoulder(session_swing="447_5", output_path="rear_shoulder_vi
     
     # Save as GIF
     print(f"Saving GIF to {output_path}...")
-    anim.save(output_path, writer='pillow', fps=3, dpi=100)
+    anim.save(output_path, writer='pillow', fps=9, dpi=100)
     print(f"GIF saved successfully!")
     
     plt.close()

@@ -11,9 +11,7 @@ target_csv_file_path = f"{obp_repo_root_path}/baseball_hitting/data/full_sig/joi
 source_csv_file_path = "./data/output.csv"
 df_source = pd.read_csv(source_csv_file_path)
 df_target = pd.read_csv(target_csv_file_path)
-session_swing = "447_5"
-# session_swing = "89_1"
-# session_swing = "198_7"
+session_swing = "215_2"
 df_source = df_source[df_source["session_swing"] == session_swing]
 df_target = df_target[df_target["session_swing"] == session_swing]
 

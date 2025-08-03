@@ -82,9 +82,11 @@ class Elbow(Joint):
 class Wrist(Joint):
     angle_seq = "ZXY"
 
-    def angles(self, ts: ktk.TimeSeries, signs=(1, -1, 1), adjustments=(0, 0, 0), batter_hand="R"):
+    def angles(self, ts: ktk.TimeSeries, signs=[1, -1, 1], adjustments=(0, 0, 0), batter_hand="R"):
         if self.side == batter_hand:
-            signs = (-1, -1, 1)
+            signs = [-1, -1, 1]
+        if batter_hand == "L":
+            signs[0] = signs[0] * -1  # invert x-angle for left hand
         angles = super().angles(ts, signs=signs, adjustments=adjustments, batter_hand=batter_hand)
         # manually setting z-angle to 0, as it's constrained by the kinematic model
         angles[:, 2] = 0
@@ -168,7 +170,6 @@ lower_body_parts = [
     heel_right,
     heel_left
 ]
-
 parts = upper_body_parts + lower_body_parts
 
 # upper body
@@ -202,5 +203,4 @@ lower_body_joints = [
     ankle_joint_right,
     ankle_joint_left
 ]
-
 joints = upper_body_joints + lower_body_joints
